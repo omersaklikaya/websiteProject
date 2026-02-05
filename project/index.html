@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebTasarım - Web Sitelerinizi Hayata Geçirin</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-icon">🌐</span>
+                <span class="logo-text">WebTasarım</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link" data-section="home">Ana Sayfa</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">Hakkımızda</a></li>
+                <li><a href="#portfolio" class="nav-link" data-section="portfolio">Projelerimiz</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">İletişim</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Tema değiştir">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <a href="#contact" class="cta-button">Başlayın</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Ana Sayfa: Sadece Hero -->
+    <section id="home">
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Web Sitelerinizi Hayata Geçirin</h1>
+                    <p class="hero-subtitle">Dijital varlığınızı güçlendirin, müşterilerinize ulaşın</p>
+                </div>
+                <div class="hero-visual">
+                    <div class="device-mockup">
+                        <div class="phone-mockup">
+                            <div class="phone-screen"></div>
+                        </div>
+                        <div class="laptop-mockup">
+                            <div class="laptop-screen"></div>
+                        </div>
+                    </div>
+                    <div class="glass-bubbles">
+                        <div class="bubble bubble-1"></div>
+                        <div class="bubble bubble-2"></div>
+                        <div class="bubble bubble-3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Hakkımızda (navbar'da Hakkımızda, bölüm başlığı Biz Kimiz?) -->
+    <section id="about" class="about-one-view">
+        <section class="page-hero page-hero-compact">
+            <div class="container">
+                <h1 class="page-title">Biz Kimiz?</h1>
+                <p class="page-subtitle">Türkiye'de başlayan genç bir startup olarak, web tasarım ve geliştirme alanında
+                    kendimizi sürekli geliştirmeye adanmış bir ekibiz.</p>
+                <p class="about-text about-story-short">Yaptığımız her işe özen gösteriyoruz; dijital dünyada
+                    işletmeleri güçlendiriyor, büyük küçük herkese hizmet veriyoruz.</p>
+                <div class="priorities priorities-compact">
+                    <div class="priority-item">
+                        <div class="priority-icon">⚡</div>
+                        <h3>Hızlı Teslimat</h3>
+                        <p>Projelerinizi zamanında teslim ediyoruz. Zamanında teslimat önceliğimizdir.</p>
+                    </div>
+                    <div class="priority-item">
+                        <div class="priority-icon">🎨</div>
+                        <h3>Modern Tasarım</h3>
+                        <p>Güncel ve kullanıcı dostu arayüzler</p>
+                    </div>
+                    <div class="priority-item">
+                        <div class="priority-icon">💎</div>
+                        <h3>Kalite Odaklı</h3>
+                        <p>Her detaya özen gösteriyoruz. Kaliteden ödün vermiyoruz.</p>
+                    </div>
+                    <div class="priority-item">
+                        <div class="priority-icon">🌱</div>
+                        <h3>Gelişim</h3>
+                        <p>Sürekli kendimizi geliştiriyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Projelerimiz: tek ekranda -->
+    <section id="portfolio" class="portfolio-one-view">
+        <section class="page-hero">
+            <div class="container">
+                <h1 class="page-title">Örnek Projelerimiz</h1>
+                <p class="page-subtitle">Yaptığımız çalışmalardan örnekler</p>
+            </div>
+        </section>
+        <section class="portfolio-section">
+            <div class="container">
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <div class="placeholder-image"><span class="placeholder-text">Proje 1</span></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">E-Ticaret Sitesi</h3>
+                            <p class="portfolio-description">Modern e-ticaret sitesi. Ürün kataloğu, sepet ve güvenli
+                                ödeme entegrasyonları.</p>
+                            <a href="#" target="_blank" class="portfolio-link"
+                                onclick="alert('Proje linki eklenecek'); return false;">Siteyi Görüntüle →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <div class="placeholder-image"><span class="placeholder-text">Proje 2</span></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Kurumsal Web Sitesi</h3>
+                            <p class="portfolio-description">Profesyonel kurumsal kimlik, responsive tasarım ve modern
+                                arayüz.</p>
+                            <a href="#" target="_blank" class="portfolio-link"
+                                onclick="alert('Proje linki eklenecek'); return false;">Siteyi Görüntüle →</a>
+                        </div>
+                    </div>
+                    <div class="portfolio-item">
+                        <div class="portfolio-image">
+                            <div class="placeholder-image"><span class="placeholder-text">Proje 3</span></div>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3 class="portfolio-title">Landing Page</h3>
+                            <p class="portfolio-description">Yüksek dönüşüm hedefleyen landing page. A/B test ve
+                                optimize kullanıcı akışı.</p>
+                            <a href="#" target="_blank" class="portfolio-link"
+                                onclick="alert('Proje linki eklenecek'); return false;">Siteyi Görüntüle →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- İletişim: tek ekranda -->
+    <section id="contact" class="contact-one-view">
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <span class="contact-label">İLETİŞİM</span>
+                        <h2 class="contact-info-title">Bizimle İletişime Geçin</h2>
+                        <p class="contact-description">
+                            Bize bir email gönderin ve yeni sitenizde istediğiniz her şeyi bize bildirin.
+                            İletişime geçen herkese 24 saat içinde yanıt veriyoruz.
+                        </p>
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div class="info-content">
+                                <h3>TELEFON</h3>
+                                <p>+90 (XXX) XXX XX XX</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">✉️</div>
+                            <div class="info-content">
+                                <h3>EMAIL</h3>
+                                <p>info@webtasarim.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div class="info-content">
+                                <h3>HİZMET VERDİĞİMİZ BÖLGELER</h3>
+                                <p>Türkiye geneli</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrapper">
+                        <h2 class="contact-form-title">Randevu Alın</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">AD</label>
+                                <input type="text" id="name" name="name" placeholder="Ad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">EMAIL</label>
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">TELEFON</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Telefon" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">MESAJ</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Mesajınızı yazın..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Mesaj Gönder</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 WebTasarım. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
