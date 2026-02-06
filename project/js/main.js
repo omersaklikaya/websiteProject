@@ -1,7 +1,8 @@
-// Theme Toggle
+// Theme Toggle – smooth visible transition (expanding circle from button)
 const themeToggle = document.getElementById("themeToggle");
-const themeIcon = themeToggle.querySelector(".theme-icon");
 const html = document.documentElement;
+
+const THEME_COLORS = { dark: "#0a0a0a", light: "#f5f2ed" };
 
 // Load saved theme
 const savedTheme = localStorage.getItem("theme") || "dark";
@@ -11,13 +12,35 @@ updateThemeIcon(savedTheme);
 themeToggle.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
+
+  /* Önce temayı anında değiştir – ekrandaki her şey hemen yeni temada görünsün */
   html.setAttribute("data-theme", newTheme);
   localStorage.setItem("theme", newTheme);
   updateThemeIcon(newTheme);
+
+  const rect = themeToggle.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+
+  /* Overlay eski tema renginde; büyük daire ekranı kaplıyor, küçülünce alttaki (yeni tema) içerik görünür */
+  const overlay = document.createElement("div");
+  overlay.className = "theme-overlay theme-overlay--reveal";
+  overlay.style.background = THEME_COLORS[currentTheme];
+  overlay.style.left = x + "px";
+  overlay.style.top = y + "px";
+  document.body.appendChild(overlay);
+
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() => overlay.classList.remove("theme-overlay--reveal"));
+  });
+
+  overlay.addEventListener("transitionend", () => {
+    overlay.remove();
+  }, { once: true });
 });
 
-function updateThemeIcon(theme) {
-  themeIcon.textContent = theme === "dark" ? "☀️" : "🌙";
+function updateThemeIcon() {
+  /* İkon görünürlüğü html[data-theme] ile CSS’te yönetiliyor */
 }
 
 // Mobile Menu Toggle
@@ -44,8 +67,12 @@ if (contactForm) {
     // TODO: Implement form submission service (Formspree, EmailJS, etc.)
     console.log("Form submitted:", data);
 
-    // Show success message
-    alert("Mesajınız alındı! En kısa sürede size dönüş yapacağız.");
+    // Show success message (dil: i18n)
+    const lang = typeof getLang === "function" ? getLang() : "tr";
+    const msg = typeof I18N !== "undefined" && I18N[lang] && I18N[lang].contact_successMessage
+      ? I18N[lang].contact_successMessage
+      : "Mesajınız alındı! En kısa sürede size dönüş yapacağız.";
+    alert(msg);
     contactForm.reset();
   });
 }
@@ -56,7 +83,7 @@ function scrollToSection(sectionId) {
   if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-document.querySelectorAll(".nav-menu .nav-link[data-section], a.cta-button").forEach((el) => {
+document.querySelectorAll(".nav-menu .nav-link[data-section], a.cta-button, a.nav-logo").forEach((el) => {
   el.addEventListener("click", function (e) {
     const href = this.getAttribute("href") || "";
     if (href.startsWith("#")) {
@@ -101,34 +128,31 @@ document.querySelectorAll(".priority-item, .about-text").forEach((el) => {
   observer.observe(el);
 });
 
-// Priority Items Click Interaction
-document.querySelectorAll(".priority-item").forEach((item) => {
-  item.addEventListener("click", function () {
-    // Add click animation feedback
-    this.style.transform = "scale(0.95)";
-    setTimeout(() => {
-      this.style.transform = "";
-    }, 150);
+// Priority items: tıklamada ripple/animasyon yok (sadece hover animasyonu)
 
-    // Optional: Add ripple effect
-    const ripple = document.createElement("span");
-    ripple.style.position = "absolute";
-    ripple.style.borderRadius = "50%";
-    ripple.style.background = "rgba(0, 217, 255, 0.3)";
-    ripple.style.width = "20px";
-    ripple.style.height = "20px";
-    ripple.style.animation = "ripple 0.6s ease-out";
-    ripple.style.pointerEvents = "none";
-    
-    const rect = this.getBoundingClientRect();
-    ripple.style.left = (event.clientX - rect.left - 10) + "px";
-    ripple.style.top = (event.clientY - rect.top - 10) + "px";
-    
-    this.style.position = "relative";
-    this.appendChild(ripple);
-    
-    setTimeout(() => {
-      ripple.remove();
-    }, 600);
+// Portföy kartları: tıklanınca site linki yoksa uyarı (ileride href ile yönlendirilebilir)
+document.querySelectorAll(".portfolio-item").forEach((item) => {
+  item.addEventListener("click", function (e) {
+    const url = this.getAttribute("href");
+    if (!url || url === "#") {
+      e.preventDefault();
+      alert("Bu proje için site linki henüz eklenmedi. Yakında eklenecektir.");
+    }
+  });
+});
+
+// İletişim: GitHub, LinkedIn, Twitter – ikon ve isim tıklanınca aynı linke gider; link yoksa uyarı
+document.querySelectorAll(".info-item").forEach((item) => {
+  const textLink = item.querySelector(".info-content .info-link[data-social]");
+  const iconLink = item.querySelector(".info-link-icon[data-social]");
+  if (textLink && iconLink) iconLink.setAttribute("href", textLink.getAttribute("href") || "#");
+});
+document.querySelectorAll(".info-link[data-social]").forEach((link) => {
+  link.addEventListener("click", function (e) {
+    const href = this.getAttribute("href");
+    if (!href || href === "#") {
+      e.preventDefault();
+      alert("Bu hesabın linki henüz eklenmedi. Yakında eklenecektir.");
+    }
   });
 });
