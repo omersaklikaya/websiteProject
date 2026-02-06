@@ -391,6 +391,12 @@ body {
   display: none;
   direction: ltr;
 }
+
+/* Arapça seçildiğinde dropdown sağdan açılsın */
+[data-lang="ar"] .lang-dropdown {
+  right: auto;
+  left: 0;
+}
 [data-theme="light"] .lang-dropdown {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
@@ -1728,10 +1734,12 @@ body {
     border-right: none;
     border-top: none;
     border-bottom: 1px solid var(--border-color);
+    min-height: 60px;
   }
 
   .nav-container {
-    padding: 0.75rem var(--spacing-md);
+    padding: 1rem var(--spacing-md);
+    min-height: 60px;
     justify-content: center;
     position: relative;
     display: flex;
