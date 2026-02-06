@@ -4,10 +4,37 @@ const html = document.documentElement;
 
 const THEME_COLORS = { dark: "#0a0a0a", light: "#f5f2ed" };
 
-// Load saved theme
-const savedTheme = localStorage.getItem("theme") || "dark";
-html.setAttribute("data-theme", savedTheme);
-updateThemeIcon(savedTheme);
+// Sistem temasını algıla
+function getSystemTheme() {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    return "dark";
+  }
+  return "light";
+}
+
+// Tema yükle: önce localStorage'dan kontrol et, yoksa sistem temasını kullan
+function loadTheme() {
+  const savedTheme = localStorage.getItem("theme");
+  const theme = savedTheme || getSystemTheme();
+  html.setAttribute("data-theme", theme);
+  updateThemeIcon(theme);
+  return theme;
+}
+
+// İlk yüklemede temayı ayarla
+const initialTheme = loadTheme();
+
+// Sistem teması değiştiğinde dinle (sadece kullanıcı manuel değiştirmemişse)
+if (!localStorage.getItem("theme")) {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    // Kullanıcı manuel değiştirmemişse sistem temasını takip et
+    if (!localStorage.getItem("theme")) {
+      const newTheme = e.matches ? "dark" : "light";
+      html.setAttribute("data-theme", newTheme);
+      updateThemeIcon(newTheme);
+    }
+  });
+}
 
 themeToggle.addEventListener("click", () => {
   const currentTheme = html.getAttribute("data-theme");
