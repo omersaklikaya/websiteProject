@@ -391,12 +391,6 @@ body {
   display: none;
   direction: ltr;
 }
-
-/* Arapça seçildiğinde dropdown sağdan açılsın */
-[data-lang="ar"] .lang-dropdown {
-  right: auto;
-  left: 0;
-}
 [data-theme="light"] .lang-dropdown {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
