@@ -70,16 +70,7 @@ function updateThemeIcon() {
   /* İkon görünürlüğü html[data-theme] ile CSS’te yönetiliyor */
 }
 
-// Mobile Menu Toggle
-const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-const navMenu = document.querySelector(".nav-menu");
-
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
-    mobileMenuToggle.classList.toggle("active");
-  });
-}
+// Mobile Menu Toggle - Kaldırıldı (hamburger menü yok)
 
 // Form Submission
 const contactForm = document.getElementById("contactForm");
@@ -117,7 +108,6 @@ document.querySelectorAll(".nav-menu .nav-link[data-section], a.cta-button, a.na
       e.preventDefault();
       const section = this.getAttribute("data-section") || href.replace("#", "");
       if (section) scrollToSection(section);
-      document.querySelector(".nav-menu")?.classList.remove("active");
     }
   });
 });
