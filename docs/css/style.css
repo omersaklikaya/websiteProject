@@ -29,7 +29,9 @@
   --spacing-xl: 2.75rem;
 
   /* Typography */
-  --font-primary: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-primary:
+    "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
 }
 
 [data-theme="light"] {
@@ -50,7 +52,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Tema geçişi: butondan yayılan daire animasyonu */
@@ -110,9 +114,12 @@ body {
   background: linear-gradient(
     to bottom,
     var(--section-about) 0%,
-    color-mix(in srgb, var(--section-about) 90%, var(--section-portfolio) 10%) 35%,
-    color-mix(in srgb, var(--section-about) 70%, var(--section-portfolio) 30%) 65%,
-    color-mix(in srgb, var(--section-portfolio) 85%, var(--section-contact) 15%) 88%,
+    color-mix(in srgb, var(--section-about) 90%, var(--section-portfolio) 10%)
+      35%,
+    color-mix(in srgb, var(--section-about) 70%, var(--section-portfolio) 30%)
+      65%,
+    color-mix(in srgb, var(--section-portfolio) 85%, var(--section-contact) 15%)
+      88%,
     var(--section-portfolio) 100%
   );
 }
@@ -120,12 +127,13 @@ body {
   background: linear-gradient(
     to bottom,
     var(--section-portfolio) 0%,
-    color-mix(in srgb, var(--section-portfolio) 88%, var(--section-contact) 12%) 40%,
-    color-mix(in srgb, var(--section-portfolio) 60%, var(--section-contact) 40%) 75%,
+    color-mix(in srgb, var(--section-portfolio) 88%, var(--section-contact) 12%)
+      40%,
+    color-mix(in srgb, var(--section-portfolio) 60%, var(--section-contact) 40%)
+      75%,
     var(--section-contact) 100%
   );
 }
-
 
 .container {
   max-width: 1200px;
@@ -145,16 +153,22 @@ body {
   border: 1px solid var(--border-color);
   border-top: none;
   border-radius: 0 0 12px 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), 0 1px 0 0 rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.25),
+    0 1px 0 0 rgba(255, 255, 255, 0.04);
   z-index: 1000;
-  transition: left 0.3s ease, right 0.3s ease;
+  transition:
+    left 0.3s ease,
+    right 0.3s ease;
 }
 
 [data-theme="light"] .navbar {
   background: rgba(239, 234, 227, 0.97);
   border: 1px solid var(--border-color);
   border-top: none;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), 0 1px 0 0 rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.06),
+    0 1px 0 0 rgba(0, 0, 0, 0.04);
 }
 
 .nav-container {
@@ -225,7 +239,9 @@ body {
   padding: 10px;
   cursor: pointer;
   border-radius: 12px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -298,7 +314,9 @@ body {
   padding: 8px;
   cursor: pointer;
   border-radius: 12px;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
   height: 44px;
   width: 44px;
   display: flex;
@@ -338,7 +356,9 @@ body {
   display: block;
   opacity: 0.88;
   filter: saturate(0.85) brightness(0.95);
-  transition: opacity 0.2s ease, filter 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    filter 0.2s ease;
 }
 .flag-circle:hover img,
 .lang-option:hover .flag-circle img {
@@ -397,7 +417,9 @@ body {
   border-radius: 10px;
   background: transparent;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
+  transition:
+    background 0.15s ease,
+    transform 0.15s ease;
 }
 .lang-option:hover {
   background: var(--bg-tertiary, rgba(255, 255, 255, 0.06));
@@ -678,7 +700,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: default;
   user-select: text;
 }
@@ -718,14 +742,19 @@ body {
   border-radius: 12px;
   border: 1px solid var(--border-color);
   background: color-mix(in srgb, var(--bg-tertiary) 60%, transparent);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   flex-shrink: 0;
   cursor: default;
 }
 
 .priority-item:hover .priority-icon-wrap {
   border-color: rgba(0, 217, 255, 0.5);
-  box-shadow: 0 0 0 1px rgba(0, 217, 255, 0.15), 0 2px 12px rgba(0, 217, 255, 0.1);
+  box-shadow:
+    0 0 0 1px rgba(0, 217, 255, 0.15),
+    0 2px 12px rgba(0, 217, 255, 0.1);
   transform: translateY(-3px);
 }
 
@@ -827,7 +856,9 @@ body {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: box-shadow 0.25s ease, filter 0.25s ease;
+  transition:
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
 }
 
 .submit-button .submit-icon {
@@ -992,7 +1023,11 @@ body {
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, transform 0.35s ease;
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    transform 0.35s ease;
 }
 
 .portfolio-one-view .portfolio-item:hover {
@@ -1014,7 +1049,9 @@ body {
   border-radius: 12px;
   background: transparent;
   border: 1px solid var(--border-color);
-  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 .portfolio-one-view .portfolio-item:hover .portfolio-icon-wrap {
@@ -1111,7 +1148,7 @@ body {
 }
 
 @media (max-width: 520px) {
-  .portfolio-grid  .portfolio-grid.portfolio-grid-three {
+  .portfolio-grid .portfolio-grid.portfolio-grid-three {
     grid-template-columns: repeat(3, 1fr);
   }
 }
@@ -1324,7 +1361,6 @@ body {
   cursor: text;
   margin: 0;
 }
-
 
 .page-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
